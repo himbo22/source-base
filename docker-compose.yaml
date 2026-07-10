@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # =======================================================
+  # 1. APP DATABASE
+  # =======================================================
+  postgres-main:
+    image: postgres:15-alpine
+    container_name: pg_main
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: app_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_main_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d app_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # =======================================================
+  # 3. REDIS (cache, session store, rate limiting)
+  # =======================================================
+  redis:
+    image: redis:7-alpine
+    container_name: redis_main
+    command: redis-server --appendonly yes --requirepass ""
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # =======================================================
+  # 4. ADMINER (lightweight DB admin panel)
+  # =======================================================
+  adminer:
+    image: adminer:latest
+    container_name: adminer
+    ports:
+      - "3001:8080"
+    restart: unless-stopped
+    depends_on:
+      - postgres-main
+
+volumes:
+  pg_main_data:
+  redis_data:

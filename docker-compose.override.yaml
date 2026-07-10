@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  # =======================================================
+  # 2. ATLAS DEV DATABASE (scratch DB for Ent/Atlas)
+  # =======================================================
+  postgres-atlas:
+    image: postgres:15-alpine
+    container_name: pg_atlas_dev
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: devpassword
+      POSTGRES_DB: atlas_dev
+    ports:
+      - "5433:5432"
+    tmpfs:
+      - /var/lib/postgresql/data
+    restart: unless-stopped
+
+
