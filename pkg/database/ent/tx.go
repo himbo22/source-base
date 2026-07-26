@@ -3,7 +3,8 @@ package ent
 import (
 	"context"
 	"fmt"
-	"source-base/pkg/common/tx"
+
+	"github.com/himbo22/source-base/pkg/common/tx"
 )
 
 type Tx interface {

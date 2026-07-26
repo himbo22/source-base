@@ -1,7 +1,7 @@
 package ent
 
 import (
-	"source-base/pkg/unique"
+	"github.com/himbo22/source-base/pkg/unique"
 	"time"
 
 	"entgo.io/ent"

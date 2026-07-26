@@ -5,7 +5,7 @@ package hook
 import (
 	"context"
 	"fmt"
-	"source-base/internal/ent/generate"
+	"github.com/himbo22/source-base/internal/ent/generate"
 )
 
 // The PetFunc type is an adapter to allow the use of ordinary

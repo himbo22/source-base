@@ -3,9 +3,9 @@
 package generate
 
 import (
-	"source-base/internal/ent/generate/pet"
-	"source-base/internal/ent/generate/user"
-	"source-base/internal/ent/schema"
+	"github.com/himbo22/source-base/internal/ent/generate/pet"
+	"github.com/himbo22/source-base/internal/ent/generate/user"
+	"github.com/himbo22/source-base/internal/ent/schema"
 	"time"
 
 	"github.com/google/uuid"

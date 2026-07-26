@@ -5,11 +5,11 @@ package enttest
 import (
 	"context"
 
-	"source-base/internal/ent/generate"
+	"github.com/himbo22/source-base/internal/ent/generate"
 	// required by schema hooks.
-	_ "source-base/internal/ent/generate/runtime"
+	_ "github.com/himbo22/source-base/internal/ent/generate/runtime"
 
-	"source-base/internal/ent/generate/migrate"
+	"github.com/himbo22/source-base/internal/ent/generate/migrate"
 
 	"entgo.io/ent/dialect/sql/schema"
 )

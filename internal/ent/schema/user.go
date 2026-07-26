@@ -1,7 +1,7 @@
 package schema
 
 import (
-	entpkg "source-base/pkg/database/ent"
+	entpkg "github.com/himbo22/source-base/pkg/database/ent"
 
 	"entgo.io/ent"
 	"entgo.io/ent/schema/edge"

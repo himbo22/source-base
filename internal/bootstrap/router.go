@@ -1,9 +1,9 @@
 package bootstrap
 
 import (
-	"source-base/internal/ports"
-	"source-base/pkg/common/http/handler"
-	"source-base/pkg/common/http/middlewares"
+	"github.com/himbo22/source-base/internal/ports"
+	"github.com/himbo22/source-base/pkg/common/http/handler"
+	"github.com/himbo22/source-base/pkg/common/http/middlewares"
 
 	"github.com/labstack/echo/v5"
 	echoMiddleware "github.com/labstack/echo/v5/middleware"

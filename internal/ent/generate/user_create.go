@@ -6,8 +6,8 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"source-base/internal/ent/generate/pet"
-	"source-base/internal/ent/generate/user"
+	"github.com/himbo22/source-base/internal/ent/generate/pet"
+	"github.com/himbo22/source-base/internal/ent/generate/user"
 	"time"
 
 	"entgo.io/ent/dialect/sql/sqlgraph"

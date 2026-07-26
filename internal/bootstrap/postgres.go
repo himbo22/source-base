@@ -2,10 +2,11 @@ package bootstrap
 
 import (
 	"fmt"
-	"source-base/internal/config"
-	"source-base/internal/ent/generate"
-	"source-base/pkg/database/ent"
-	"source-base/pkg/settings"
+
+	"github.com/himbo22/source-base/internal/config"
+	"github.com/himbo22/source-base/internal/ent/generate"
+	"github.com/himbo22/source-base/pkg/database/ent"
+	"github.com/himbo22/source-base/pkg/settings"
 )
 
 func InitPostgreSQL(config *config.Config) (*generate.Client, error) {

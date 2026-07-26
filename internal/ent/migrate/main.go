@@ -4,9 +4,9 @@ package main
 
 import (
 	"context"
+	"github.com/himbo22/source-base/internal/ent/generate/migrate"
 	"log"
 	"os"
-	"source-base/internal/ent/generate/migrate"
 
 	atlas "ariga.io/atlas/sql/migrate"
 	"entgo.io/ent/dialect"

@@ -2,10 +2,10 @@ package bootstrap
 
 import (
 	"context"
-	_const "source-base/internal/const"
-	"source-base/internal/ent/generate"
-	"source-base/internal/ports"
-	"source-base/pkg/database/ent"
+	_const "github.com/himbo22/source-base/internal/const"
+	"github.com/himbo22/source-base/internal/ent/generate"
+	"github.com/himbo22/source-base/internal/ports"
+	"github.com/himbo22/source-base/pkg/database/ent"
 )
 
 func NewEntTxManager(client *generate.Client) ports.TxManager {

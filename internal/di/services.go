@@ -1,8 +1,8 @@
 package di
 
 import (
-	"source-base/internal/ent/repository"
-	"source-base/internal/service"
+	"github.com/himbo22/source-base/internal/ent/repository"
+	"github.com/himbo22/source-base/internal/service"
 
 	"github.com/google/wire"
 )

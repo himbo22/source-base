@@ -4,7 +4,7 @@ package generate
 
 import (
 	"fmt"
-	"source-base/internal/ent/generate/user"
+	"github.com/himbo22/source-base/internal/ent/generate/user"
 	"strings"
 	"time"
 

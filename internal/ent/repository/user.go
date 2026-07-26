@@ -2,11 +2,11 @@ package repository
 
 import (
 	"context"
-	"source-base/internal/domain/entity"
-	"source-base/internal/ent"
-	"source-base/internal/ent/generate"
-	"source-base/internal/ent/generate/user"
-	"source-base/internal/ports"
+	"github.com/himbo22/source-base/internal/domain/entity"
+	"github.com/himbo22/source-base/internal/ent"
+	"github.com/himbo22/source-base/internal/ent/generate"
+	"github.com/himbo22/source-base/internal/ent/generate/user"
+	"github.com/himbo22/source-base/internal/ports"
 )
 
 type userRepository struct {

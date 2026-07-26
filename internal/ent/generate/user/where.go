@@ -3,7 +3,7 @@
 package user
 
 import (
-	"source-base/internal/ent/generate/predicate"
+	"github.com/himbo22/source-base/internal/ent/generate/predicate"
 	"time"
 
 	"entgo.io/ent/dialect/sql"

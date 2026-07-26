@@ -1,8 +1,8 @@
 package bootstrap
 
 import (
-	"source-base/internal/config"
-	"source-base/pkg/logger"
+	"github.com/himbo22/source-base/internal/config"
+	"github.com/himbo22/source-base/pkg/logger"
 
 	"go.uber.org/zap"
 )

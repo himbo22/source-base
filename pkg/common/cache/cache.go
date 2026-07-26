@@ -2,7 +2,7 @@ package cache
 
 import (
 	"context"
-	"source-base/pkg/dto"
+	"github.com/himbo22/source-base/pkg/dto"
 	"time"
 )
 

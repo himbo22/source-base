@@ -3,11 +3,11 @@ package di
 import (
 	"fmt"
 
-	"source-base/internal/bootstrap"
-	"source-base/internal/config"
-	"source-base/internal/ent/generate"
-	"source-base/internal/ports"
-	"source-base/pkg/database/redis"
+	"github.com/himbo22/source-base/internal/bootstrap"
+	"github.com/himbo22/source-base/internal/config"
+	"github.com/himbo22/source-base/internal/ent/generate"
+	"github.com/himbo22/source-base/internal/ports"
+	"github.com/himbo22/source-base/pkg/database/redis"
 
 	"github.com/google/wire"
 	"go.uber.org/zap"

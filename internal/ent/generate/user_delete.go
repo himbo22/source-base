@@ -4,8 +4,8 @@ package generate
 
 import (
 	"context"
-	"source-base/internal/ent/generate/predicate"
-	"source-base/internal/ent/generate/user"
+	"github.com/himbo22/source-base/internal/ent/generate/predicate"
+	"github.com/himbo22/source-base/internal/ent/generate/user"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"

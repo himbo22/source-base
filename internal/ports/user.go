@@ -2,8 +2,8 @@ package ports
 
 import (
 	"context"
-	"source-base/internal/domain/dto"
-	"source-base/internal/domain/entity"
+	"github.com/himbo22/source-base/internal/domain/dto"
+	"github.com/himbo22/source-base/internal/domain/entity"
 )
 
 type UserController interface {

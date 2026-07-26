@@ -7,10 +7,11 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
-	"source-base/internal/config"
-	"source-base/internal/di"
 	"syscall"
 	"time"
+
+	"github.com/himbo22/source-base/internal/config"
+	"github.com/himbo22/source-base/internal/di"
 
 	"go.uber.org/zap"
 )

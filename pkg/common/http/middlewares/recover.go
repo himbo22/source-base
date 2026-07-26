@@ -1,10 +1,10 @@
 package middlewares
 
 import (
+	"github.com/himbo22/source-base/pkg/common/apperror"
+	"github.com/himbo22/source-base/pkg/common/http/response"
 	"net/http"
 	"runtime/debug"
-	"source-base/pkg/common/apperror"
-	"source-base/pkg/common/http/response"
 
 	"github.com/labstack/echo/v5"
 	"go.uber.org/zap"

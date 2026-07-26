@@ -7,11 +7,11 @@
 package di
 
 import (
-	"source-base/internal/bootstrap"
-	"source-base/internal/config"
-	"source-base/internal/controller/http"
-	"source-base/internal/ent/repository"
-	"source-base/internal/service"
+	"github.com/himbo22/source-base/internal/bootstrap"
+	"github.com/himbo22/source-base/internal/config"
+	"github.com/himbo22/source-base/internal/controller/http"
+	"github.com/himbo22/source-base/internal/ent/repository"
+	"github.com/himbo22/source-base/internal/service"
 )
 
 // Injectors from wire.go:

@@ -6,9 +6,9 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"source-base/internal/ent/generate/pet"
-	"source-base/internal/ent/generate/predicate"
-	"source-base/internal/ent/generate/user"
+	"github.com/himbo22/source-base/internal/ent/generate/pet"
+	"github.com/himbo22/source-base/internal/ent/generate/predicate"
+	"github.com/himbo22/source-base/internal/ent/generate/user"
 	"sync"
 	"time"
 

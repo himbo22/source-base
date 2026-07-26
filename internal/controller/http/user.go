@@ -2,8 +2,9 @@ package http
 
 import (
 	"context"
-	"source-base/internal/domain/dto"
-	"source-base/internal/ports"
+
+	"github.com/himbo22/source-base/internal/domain/dto"
+	"github.com/himbo22/source-base/internal/ports"
 )
 
 type userController struct {

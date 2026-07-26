@@ -2,8 +2,8 @@ package handler
 
 import (
 	"context"
-	"source-base/pkg/common/http/request"
-	"source-base/pkg/common/http/response"
+	"github.com/himbo22/source-base/pkg/common/http/request"
+	"github.com/himbo22/source-base/pkg/common/http/response"
 
 	"github.com/labstack/echo/v5"
 )

@@ -1,8 +1,9 @@
 package utils
 
 import (
-	"source-base/pkg/constraints"
 	"time"
+
+	"github.com/himbo22/source-base/pkg/constraints"
 )
 
 // ToDuration converts any integer type (seconds) to time.Duration.

@@ -4,8 +4,9 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"source-base/pkg/settings"
 	"time"
+
+	"github.com/himbo22/source-base/pkg/settings"
 
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"

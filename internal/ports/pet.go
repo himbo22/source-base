@@ -2,7 +2,7 @@ package ports
 
 import (
 	"context"
-	"source-base/internal/domain/dto"
+	"github.com/himbo22/source-base/internal/domain/dto"
 )
 
 type PetController interface {

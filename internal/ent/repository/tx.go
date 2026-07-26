@@ -2,8 +2,8 @@ package repository
 
 import (
 	"context"
-	_const "source-base/internal/const"
-	"source-base/internal/ent/generate"
+	_const "github.com/himbo22/source-base/internal/const"
+	"github.com/himbo22/source-base/internal/ent/generate"
 )
 
 func GetClient(ctx context.Context, client *generate.Client) *generate.Client {

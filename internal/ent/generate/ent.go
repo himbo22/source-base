@@ -6,9 +6,9 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/himbo22/source-base/internal/ent/generate/pet"
+	"github.com/himbo22/source-base/internal/ent/generate/user"
 	"reflect"
-	"source-base/internal/ent/generate/pet"
-	"source-base/internal/ent/generate/user"
 	"sync"
 
 	"entgo.io/ent"

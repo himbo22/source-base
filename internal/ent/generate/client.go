@@ -9,10 +9,10 @@ import (
 	"log"
 	"reflect"
 
-	"source-base/internal/ent/generate/migrate"
+	"github.com/himbo22/source-base/internal/ent/generate/migrate"
 
-	"source-base/internal/ent/generate/pet"
-	"source-base/internal/ent/generate/user"
+	"github.com/himbo22/source-base/internal/ent/generate/pet"
+	"github.com/himbo22/source-base/internal/ent/generate/user"
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect"

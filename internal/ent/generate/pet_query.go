@@ -5,10 +5,10 @@ package generate
 import (
 	"context"
 	"fmt"
+	"github.com/himbo22/source-base/internal/ent/generate/pet"
+	"github.com/himbo22/source-base/internal/ent/generate/predicate"
+	"github.com/himbo22/source-base/internal/ent/generate/user"
 	"math"
-	"source-base/internal/ent/generate/pet"
-	"source-base/internal/ent/generate/predicate"
-	"source-base/internal/ent/generate/user"
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"

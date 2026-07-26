@@ -1,9 +1,9 @@
 package di
 
 import (
-	"source-base/internal/config"
-	"source-base/internal/ent/generate"
-	"source-base/pkg/database/redis"
+	"github.com/himbo22/source-base/internal/config"
+	"github.com/himbo22/source-base/internal/ent/generate"
+	"github.com/himbo22/source-base/pkg/database/redis"
 
 	"github.com/labstack/echo/v5"
 	"go.uber.org/zap"

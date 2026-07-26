@@ -1,8 +1,8 @@
 package ent
 
 import (
-	"source-base/internal/domain/entity"
-	"source-base/internal/ent/generate"
+	"github.com/himbo22/source-base/internal/domain/entity"
+	"github.com/himbo22/source-base/internal/ent/generate"
 )
 
 func ToDomainPet(p *generate.Pet) *entity.Pet {

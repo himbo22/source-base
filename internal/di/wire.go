@@ -4,7 +4,7 @@
 package di
 
 import (
-	"source-base/internal/config"
+	"github.com/himbo22/source-base/internal/config"
 
 	"github.com/google/wire"
 )

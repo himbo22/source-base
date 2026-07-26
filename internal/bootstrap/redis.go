@@ -2,9 +2,9 @@ package bootstrap
 
 import (
 	"fmt"
-	"source-base/internal/config"
-	"source-base/pkg/database/redis"
-	"source-base/pkg/settings"
+	"github.com/himbo22/source-base/internal/config"
+	"github.com/himbo22/source-base/pkg/database/redis"
+	"github.com/himbo22/source-base/pkg/settings"
 )
 
 func InitRedis(config *config.Config) (*redis.Engine, error) {
