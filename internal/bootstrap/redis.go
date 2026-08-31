@@ -2,6 +2,7 @@ package bootstrap
 
 import (
 	"fmt"
+
 	"github.com/himbo22/source-base/internal/config"
 	"github.com/himbo22/source-base/pkg/database/redis"
 	"github.com/himbo22/source-base/pkg/settings"

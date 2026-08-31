@@ -14,12 +14,23 @@ import (
 )
 
 func NewPostgreSQLDriver(cfg settings.PostgreSQL) (*entsql.Driver, error) {
-	dsn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+	sslmode := cfg.SSLMode
+	if sslmode == "" {
+		sslmode = "disable"
+	}
+	timezone := cfg.Timezone
+	if timezone == "" {
+		timezone = "UTC"
+	}
+
+	dsn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=%s timezone=%s",
 		cfg.Host,
 		cfg.Port,
 		cfg.Username,
 		cfg.Password,
 		cfg.Database,
+		sslmode,
+		timezone,
 	)
 
 	db, err := sql.Open("pgx", dsn)

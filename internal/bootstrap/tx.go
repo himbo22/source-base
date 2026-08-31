@@ -2,6 +2,7 @@ package bootstrap
 
 import (
 	"context"
+
 	_const "github.com/himbo22/source-base/internal/const"
 	"github.com/himbo22/source-base/internal/ent/generate"
 	"github.com/himbo22/source-base/internal/ports"

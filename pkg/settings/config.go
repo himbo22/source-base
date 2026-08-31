@@ -20,6 +20,9 @@ type PostgreSQL struct {
 	MaxIdleConns    int    `yaml:"max_idle_conns"`
 	ConnMaxLifetime int    `yaml:"conn_max_lifetime"`
 	ConnMaxIdleTime int    `yaml:"conn_max_idle_time"`
+	SSLMode         string `yaml:"sslmode"`
+	Timezone        string `yaml:"timezone"`
+	Debug           bool   `yaml:"debug"`
 }
 
 // Server is the configuration for the server
@@ -57,6 +60,7 @@ type Redis struct {
 	Addrs           []string `yaml:"addrs"`
 	MasterName      string   `yaml:"master_name"`
 	Host            string   `yaml:"host"`
+	Username        string   `yaml:"username"`
 	Password        string   `yaml:"password"`
 	Port            int      `yaml:"port"`
 	Database        int      `yaml:"database"`
