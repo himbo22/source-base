@@ -14,34 +14,47 @@ import (
 )
 
 func NewPostgreSQLDriver(cfg settings.PostgreSQL) (*entsql.Driver, error) {
-	sslmode := cfg.SSLMode
-	if sslmode == "" {
-		sslmode = "disable"
-	}
-	timezone := cfg.Timezone
-	if timezone == "" {
-		timezone = "UTC"
-	}
+	var dsn string
+	if cfg.URL != "" {
+		dsn = cfg.URL
+	} else {
+		sslmode := cfg.SSLMode
+		if sslmode == "" {
+			sslmode = "disable"
+		}
+		timezone := cfg.Timezone
+		if timezone == "" {
+			timezone = "UTC"
+		}
 
-	dsn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=%s timezone=%s",
-		cfg.Host,
-		cfg.Port,
-		cfg.Username,
-		cfg.Password,
-		cfg.Database,
-		sslmode,
-		timezone,
-	)
+		dsn = fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=%s timezone=%s",
+			cfg.Host,
+			cfg.Port,
+			cfg.Username,
+			cfg.Password,
+			cfg.Database,
+			sslmode,
+			timezone,
+		)
+	}
 
 	db, err := sql.Open("pgx", dsn)
 	if err != nil {
 		return nil, fmt.Errorf("failed to open database connection: %w", err)
 	}
 
-	db.SetMaxOpenConns(cfg.MaxOpenConns)
-	db.SetMaxIdleConns(cfg.MaxIdleConns)
-	db.SetConnMaxLifetime(time.Duration(cfg.ConnMaxLifetime) * time.Second)
-	db.SetConnMaxIdleTime(time.Duration(cfg.ConnMaxIdleTime) * time.Second)
+	if cfg.MaxOpenConns > 0 {
+		db.SetMaxOpenConns(cfg.MaxOpenConns)
+	}
+	if cfg.MaxIdleConns > 0 {
+		db.SetMaxIdleConns(cfg.MaxIdleConns)
+	}
+	if cfg.ConnMaxLifetime > 0 {
+		db.SetConnMaxLifetime(time.Duration(cfg.ConnMaxLifetime) * time.Second)
+	}
+	if cfg.ConnMaxIdleTime > 0 {
+		db.SetConnMaxIdleTime(time.Duration(cfg.ConnMaxIdleTime) * time.Second)
+	}
 
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()

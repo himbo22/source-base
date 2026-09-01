@@ -11,6 +11,7 @@ type Config struct {
 
 // PostgreSQL is the configuration for the database
 type PostgreSQL struct {
+	URL             string `yaml:"url"`
 	Host            string `yaml:"host"`
 	Port            int    `yaml:"port"`
 	Username        string `yaml:"username"`

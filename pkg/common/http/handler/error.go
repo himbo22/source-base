@@ -4,9 +4,10 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"net/http"
+
 	"github.com/himbo22/source-base/pkg/common/apperror"
 	"github.com/himbo22/source-base/pkg/common/http/response"
-	"net/http"
 
 	"github.com/labstack/echo/v5"
 	"go.uber.org/zap"
@@ -28,8 +29,6 @@ func (h *ErrorHandler) NotFoundHandler(c *echo.Context) error {
 }
 
 func (h *ErrorHandler) ErrorHandler(c *echo.Context, err error) {
-	fmt.Printf("DEBUG: err type=%T, value=%v\n", err, err)
-
 	httpCode := http.StatusInternalServerError
 	res := response.Response{
 		Code:    response.CodeInternalServer,
