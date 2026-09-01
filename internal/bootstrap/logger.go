@@ -15,8 +15,12 @@ func InitLogger(config *config.Config) *zap.Logger {
 		MaxAge:     config.Logger.RotateExpire,
 		MaxBackups: config.Logger.RotateBackupLimit,
 		Compress:   true,
+		StSkip:     config.Logger.StSkip,
 	}
 
-	lg := logger.NewLogger(cfg)
-	return lg
+	if config.Logger.RotateSize > 0 && config.Logger.File != "" {
+		return logger.NewLogger(cfg)
+	}
+
+	return logger.NewStdoutLogger(cfg)
 }

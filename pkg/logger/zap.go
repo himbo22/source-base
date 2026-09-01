@@ -13,6 +13,7 @@ type Config struct {
 	Level      string
 	Filename   string
 	MaxSize    int
+	StSkip     int
 	MaxBackups int
 	MaxAge     int
 	Compress   bool
@@ -51,9 +52,42 @@ func NewLogger(cfg Config) *zap.Logger {
 		zapcore.NewCore(zapcore.NewConsoleEncoder(encoderConfig), consoleWriter, logLevel),
 	)
 
-	logger := zap.New(core, zap.AddCaller(), zap.AddStacktrace(zapcore.ErrorLevel))
+	opts := []zap.Option{
+		zap.AddCaller(),
+		zap.AddStacktrace(zapcore.ErrorLevel),
+	}
+	if cfg.StSkip > 0 {
+		opts = append(opts, zap.AddCallerSkip(cfg.StSkip))
+	}
+
+	logger := zap.New(core, opts...)
 
 	return logger
+}
+
+// NewStdoutLogger creates a structured logger for OpenTelemetry/container environments
+// that outputs structured JSON logs to stdout without file rotation.
+func NewStdoutLogger(cfg Config) *zap.Logger {
+	logLevel := getLogLevel(cfg.Level)
+
+	stdoutWriter := zapcore.AddSync(os.Stdout)
+
+	encoderConfig := zap.NewProductionEncoderConfig()
+	encoderConfig.TimeKey = "timestamp"
+	encoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder
+	encoderConfig.EncodeLevel = zapcore.CapitalLevelEncoder
+
+	core := zapcore.NewCore(zapcore.NewJSONEncoder(encoderConfig), stdoutWriter, logLevel)
+
+	opts := []zap.Option{
+		zap.AddCaller(),
+		zap.AddStacktrace(zapcore.ErrorLevel),
+	}
+	if cfg.StSkip > 0 {
+		opts = append(opts, zap.AddCallerSkip(cfg.StSkip))
+	}
+
+	return zap.New(core, opts...)
 }
 
 func getLogLevel(level string) zapcore.Level {

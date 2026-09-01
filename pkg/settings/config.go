@@ -53,6 +53,7 @@ type Logger struct {
 	MaxAge      int    `yaml:"max_age"`
 	MaxSize     int    `yaml:"max_size"`
 	Compress    bool   `yaml:"compress"`
+	StSkip      int    `yaml:"st_skip"`
 }
 
 // Redis is the configuration for Redis
