@@ -22,7 +22,13 @@ const (
 	CodeTokenExpired    = 41002 // Token expired
 	CodeInvalidPassword = 41003 // Invalid password
 	CodeAccountNotFound = 41004 // Account not found
-	CodeForbidden       = 43000 // Forbidden (403) - Note: standard is 403 but creating range 43000
+	CodeTokenRevoked    = 41005 // Token revoked
+
+	// CodeForbidden Forbidden & Restriction errors (43000-43999)
+	CodeForbidden        = 43000 // Forbidden
+	CodeUserSuspended    = 43001 // User account suspended
+	CodeUserRestricted   = 43002 // User account restricted
+	CodeActionRestricted = 43003 // User action restricted
 
 	// CodeNotFound Not found errors (44000-44999)
 	CodeNotFound = 44000 // Resource not found

@@ -26,7 +26,12 @@ var Msg = map[int]CodeInfo{
 	CodeTokenExpired:    {http.StatusUnauthorized, "Token expired"},
 	CodeInvalidPassword: {http.StatusUnauthorized, "Invalid password"},
 	CodeAccountNotFound: {http.StatusUnauthorized, "Account not found"},
-	CodeForbidden:       {http.StatusForbidden, "Forbidden"},
+	CodeTokenRevoked:    {http.StatusUnauthorized, "Token has been revoked"},
+
+	CodeForbidden:        {http.StatusForbidden, "Forbidden"},
+	CodeUserSuspended:    {http.StatusForbidden, "Account has been suspended"},
+	CodeUserRestricted:   {http.StatusForbidden, "Account is restricted from accessing this service"},
+	CodeActionRestricted: {http.StatusForbidden, "Account is restricted from performing state-mutating actions"},
 
 	CodeNotFound: {http.StatusNotFound, "Resource not found"},
 

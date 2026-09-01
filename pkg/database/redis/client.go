@@ -76,6 +76,18 @@ func (r *Engine) Get(ctx context.Context, key string) ([]byte, bool, error) {
 	return value, true, nil
 }
 
+// Exists checks if one or more keys exist in Redis. Returns the count of existing keys.
+func (r *Engine) Exists(ctx context.Context, keys ...string) (int64, error) {
+	if len(keys) == 0 {
+		return 0, nil
+	}
+	count, err := r.Client.Exists(ctx, keys...).Result()
+	if err != nil {
+		return 0, fmt.Errorf("redis exists keys %v: %w", keys, err)
+	}
+	return count, nil
+}
+
 // Set stores a value with the given TTL. ttl=0 means no expiration.
 func (r *Engine) Set(ctx context.Context, key string, value any, ttl time.Duration) error {
 	byteValue, err := json.Marshal(value)
