@@ -2,6 +2,8 @@ package middlewares
 
 import (
 	"context"
+
+	"github.com/google/uuid"
 	"github.com/himbo22/source-base/pkg/constraints"
 
 	"github.com/labstack/echo/v5"
@@ -12,6 +14,10 @@ func RequestLogger(logger *zap.Logger) echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(c *echo.Context) error {
 			requestID := c.Request().Header.Get(echo.HeaderXRequestID)
+			if requestID == "" {
+				requestID = uuid.New().String()
+				c.Request().Header.Set(echo.HeaderXRequestID, requestID)
+			}
 			ctx := context.WithValue(c.Request().Context(), constraints.RequestIDKey, requestID)
 			c.SetRequest(c.Request().WithContext(ctx))
 
