@@ -11,6 +11,7 @@ type Config struct {
 	Logger   LoggerConfig     `yaml:"logger"`
 	Postgres PostgreSQLConfig `yaml:"postgres"`
 	Redis    RedisConfig      `yaml:"redis"`
+	MongoDB  MongoDBConfig    `yaml:"mongodb"`
 	Auth     AuthConfig       `yaml:"auth"`
 	Email    EmailConfig      `yaml:"email"`
 	Otel     TelemetryConfig  `yaml:"otel"`
@@ -122,6 +123,22 @@ type TelemetryConfig struct {
 	Endpoint       string  `mapstructure:"endpoint" yaml:"endpoint"`       // localhost:4317 or localhost:4318
 	SampleRate     float64 `mapstructure:"sample_rate" yaml:"sample_rate"` // 1.0 = 100%, 0.1 = 10%
 	Insecure       bool    `mapstructure:"insecure" yaml:"insecure"`       // disable TLS
+}
+
+type MongoDBConfig struct {
+	URL             string `yaml:"url"`
+	Host            string `yaml:"host"`
+	Port            int    `yaml:"port"`
+	Username        string `yaml:"username"`
+	Password        string `yaml:"password"`
+	Database        string `yaml:"database"`
+	AuthSource      string `yaml:"auth_source"`
+	MaxPoolSize     uint64 `yaml:"max_pool_size"`
+	MinPoolSize     uint64 `yaml:"min_pool_size"`
+	MaxConnIdleTime uint64 `yaml:"max_conn_idle_time"`
+	Timeout         int    `yaml:"timeout"`
+	TLSEnabled      bool   `yaml:"tls_enabled"`
+	TLSInsecure     bool   `yaml:"tls_insecure"`
 }
 
 func LoadConfig() (*Config, error) {

@@ -35,15 +35,19 @@ type Server struct {
 
 // MongoDB is the configuration for MongoDB
 type MongoDB struct {
+	URL             string `yaml:"url"`
 	Host            string `yaml:"host"`
+	Port            int    `yaml:"port"`
 	Username        string `yaml:"username"`
 	Password        string `yaml:"password"`
 	Database        string `yaml:"database"`
+	AuthSource      string `yaml:"auth_source"`
 	MaxPoolSize     uint64 `yaml:"max_pool_size"`
 	MinPoolSize     uint64 `yaml:"min_pool_size"`
 	MaxConnIdleTime uint64 `yaml:"max_conn_idle_time"`
-	Port            int    `yaml:"port"`
 	Timeout         int    `yaml:"timeout"`
+	TLSEnabled      bool   `yaml:"tls_enabled"`
+	TLSInsecure     bool   `yaml:"tls_insecure"`
 }
 
 // Logger is the configuration for the logger

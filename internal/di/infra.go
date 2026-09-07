@@ -7,6 +7,7 @@ import (
 	"github.com/himbo22/source-base/internal/config"
 	"github.com/himbo22/source-base/internal/ent/generate"
 	"github.com/himbo22/source-base/internal/ports"
+	"github.com/himbo22/source-base/pkg/database/mongodb"
 	"github.com/himbo22/source-base/pkg/database/redis"
 
 	"github.com/google/wire"
@@ -17,6 +18,7 @@ var InfraSet = wire.NewSet(
 	LoggerProvider,
 	PostgresProvider,
 	RedisProvider,
+	MongoDBProvider,
 	TxManagerProvider,
 )
 
@@ -46,4 +48,14 @@ func RedisProvider(cfg *config.Config) (*redis.Engine, func(), error) {
 
 func TxManagerProvider(client *generate.Client) ports.TxManager {
 	return bootstrap.NewEntTxManager(client)
+}
+
+func MongoDBProvider(cfg *config.Config) (*mongodb.Client, func(), error) {
+	client, err := bootstrap.InitMongoDB(cfg)
+	if err != nil {
+		return nil, nil, fmt.Errorf("init mongodb: %w", err)
+	}
+	return client, func() {
+		_ = bootstrap.CloseMongoDB(client)
+	}, nil
 }

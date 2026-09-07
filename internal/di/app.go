@@ -3,6 +3,7 @@ package di
 import (
 	"github.com/himbo22/source-base/internal/config"
 	"github.com/himbo22/source-base/internal/ent/generate"
+	"github.com/himbo22/source-base/pkg/database/mongodb"
 	"github.com/himbo22/source-base/pkg/database/redis"
 
 	"github.com/labstack/echo/v5"
@@ -14,5 +15,6 @@ type App struct {
 	Logger  *zap.Logger
 	DB      *generate.Client
 	Redis   *redis.Engine
+	MongoDB *mongodb.Client
 	EchoApp *echo.Echo
 }

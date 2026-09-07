@@ -66,6 +66,20 @@ redis:
     min_retry_backoff: 8
     max_retry_backoff: 512
 
+mongodb:
+  host: "127.0.0.1"
+  port: 27017
+  username: ""
+  password: ""
+  database: "app_db"
+  auth_source: "admin"
+  max_pool_size: 100
+  min_pool_size: 5
+  max_conn_idle_time: 300
+  timeout: 10
+  tls_enabled: false
+  tls_insecure: false
+
 auth:
   jwtKeyId: xoxz-key
   accessTokenExpireMinute: 60

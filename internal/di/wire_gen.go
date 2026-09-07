@@ -27,6 +27,12 @@ func InitApp(cfg *config.Config) (*App, func(), error) {
 		cleanup()
 		return nil, nil, err
 	}
+	mongodbClient, cleanup3, err := MongoDBProvider(cfg)
+	if err != nil {
+		cleanup2()
+		cleanup()
+		return nil, nil, err
+	}
 	userRepository := repository.NewUserRepository(client)
 	userService := service.NewUserService(userRepository, logger)
 	userController := http.NewUserController(userService)
@@ -37,9 +43,11 @@ func InitApp(cfg *config.Config) (*App, func(), error) {
 		Logger:  logger,
 		DB:      client,
 		Redis:   engine,
+		MongoDB: mongodbClient,
 		EchoApp: echo,
 	}
 	return app, func() {
+		cleanup3()
 		cleanup2()
 		cleanup()
 	}, nil
