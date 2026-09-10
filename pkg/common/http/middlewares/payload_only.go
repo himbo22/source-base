@@ -1,7 +1,6 @@
 package middlewares
 
 import (
-	"context"
 	"net/http"
 	"strings"
 
@@ -47,11 +46,6 @@ func ExtractPayload() echo.MiddlewareFunc {
 			}
 
 			c.Set(string(constraints.ClaimsKey), claims)
-			c.Set(string(constraints.PublicIDKey), claims.PublicID)
-
-			reqCtx := context.WithValue(c.Request().Context(), constraints.ClaimsKey, claims)
-			reqCtx = context.WithValue(reqCtx, constraints.PublicIDKey, claims.PublicID)
-			c.SetRequest(c.Request().WithContext(reqCtx))
 
 			return next(c)
 		}
