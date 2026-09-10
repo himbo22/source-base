@@ -14,10 +14,10 @@ import (
 	"github.com/labstack/echo/v5"
 )
 
-// PayloadOnlyMiddleware extracts JWT claims without verifying the signature.
+// ExtractPayload extracts JWT claims without verifying the signature.
 // Use only when the token has already been validated upstream (e.g., at an API gateway)
 // or for internal service-to-service calls where signature verification is unnecessary.
-func PayloadOnlyMiddleware() echo.MiddlewareFunc {
+func ExtractPayload() echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(c *echo.Context) error {
 			authHeader := c.Request().Header.Get("Authorization")

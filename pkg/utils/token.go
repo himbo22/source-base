@@ -21,12 +21,11 @@ const (
 type Claims struct {
 	jwt.RegisteredClaims
 	PublicID string   `json:"public_id"`
-	Email    string   `json:"email"`
 	Roles    []string `json:"roles,omitempty"`
 }
 
 func NewClaims(
-	PublicID string, Email string, Roles []string, expiryDuration time.Duration,
+	PublicID string, Roles []string, expiryDuration time.Duration,
 ) *Claims {
 	return &Claims{
 		RegisteredClaims: jwt.RegisteredClaims{
@@ -36,7 +35,6 @@ func NewClaims(
 			Issuer:    "auth-svc",
 		},
 		PublicID: PublicID,
-		Email:    Email,
 		Roles:    Roles,
 	}
 }
