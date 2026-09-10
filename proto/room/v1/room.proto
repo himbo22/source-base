@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package room.v1;
+
+option go_package = "github.com/himbo22/source-base/gen/go/room/v1;roomv1";
+
+service RoomService {
+  rpc CreateRoom(CreateRoomRequest) returns (CreateRoomResponse);
+  rpc GetRoom(GetRoomRequest) returns (GetRoomResponse);
+}
+
+message CreateRoomRequest {
+  string room_id = 1;      // UUID room-svc đã tạo, sfu-server dùng làm khoá idempotent
+  int32 max_members = 2;
+}
+
+message CreateRoomResponse {
+  bool success = 1;
+}
+
+message GetRoomRequest {
+  string room_id = 1;
+}
+
+message GetRoomResponse {
+  string room_id = 1;
+  int32 current_members = 2;
+  string status = 3;
+}

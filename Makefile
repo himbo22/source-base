@@ -23,6 +23,20 @@ help: ## Display available commands
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 # ==============================================================================
+# PROTO / BUF (gRPC CODE GENERATION)
+# ==============================================================================
+.PHONY: proto-gen proto-lint proto-breaking
+proto-gen: ## Generate gRPC/Go stubs from proto/ into gen/go/
+	buf generate
+	@echo "=> Done!"
+
+proto-lint: ## Lint proto files against DEFAULT rules
+	buf lint
+
+proto-breaking: ## Check breaking changes against the git tag
+	buf breaking --against "$$(git describe --tags --abbrev=0)"
+
+# ==============================================================================
 # 1. SCHEMA MANAGEMENT (DATA DESIGN)
 # ==============================================================================
 .PHONY: ent-new
