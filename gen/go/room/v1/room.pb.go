@@ -24,7 +24,6 @@ const (
 type CreateRoomRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RoomId        string                 `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"` // UUID room-svc đã tạo, sfu-server dùng làm khoá idempotent
-	MaxMembers    int32                  `protobuf:"varint,2,opt,name=max_members,json=maxMembers,proto3" json:"max_members,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -64,13 +63,6 @@ func (x *CreateRoomRequest) GetRoomId() string {
 		return x.RoomId
 	}
 	return ""
-}
-
-func (x *CreateRoomRequest) GetMaxMembers() int32 {
-	if x != nil {
-		return x.MaxMembers
-	}
-	return 0
 }
 
 type CreateRoomResponse struct {
@@ -225,11 +217,9 @@ var File_room_v1_room_proto protoreflect.FileDescriptor
 
 const file_room_v1_room_proto_rawDesc = "" +
 	"\n" +
-	"\x12room/v1/room.proto\x12\aroom.v1\"M\n" +
+	"\x12room/v1/room.proto\x12\aroom.v1\",\n" +
 	"\x11CreateRoomRequest\x12\x17\n" +
-	"\aroom_id\x18\x01 \x01(\tR\x06roomId\x12\x1f\n" +
-	"\vmax_members\x18\x02 \x01(\x05R\n" +
-	"maxMembers\".\n" +
+	"\aroom_id\x18\x01 \x01(\tR\x06roomId\".\n" +
 	"\x12CreateRoomResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\")\n" +
 	"\x0eGetRoomRequest\x12\x17\n" +
